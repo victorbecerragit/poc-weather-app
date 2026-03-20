@@ -11,6 +11,7 @@ from fetch_weather import (
     build_api_url,
     build_weather_block,
     parse_current_weather,
+    render_readme_card,
     render_markdown_table,
     replace_weather_block,
     weathercode_to_emoji,
@@ -64,6 +65,22 @@ def test_render_markdown_table() -> None:
     assert "| Time (Europe/Rome)" in table
     assert "| 2026-03-20T12:00" in table
     assert "| 12.5" in table
+
+
+def test_render_readme_card() -> None:
+    data = WeatherData(
+        time="2026-03-20T12:00",
+        temperature_c=12.5,
+        humidity_percent=55,
+        wind_speed_kmh=9.1,
+        wind_direction_deg=180,
+        precipitation_mm=0.0,
+        weathercode=2,
+    )
+    card = render_readme_card(data)
+    assert "Pavia Weather" in card
+    assert "12.5" in card
+    assert "Humidity 55%" in card
 
 
 def test_build_weather_block() -> None:

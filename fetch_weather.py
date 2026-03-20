@@ -181,17 +181,44 @@ def render_markdown_table(data: WeatherData) -> str:
     )
 
 
-def build_weather_block(table: str) -> str:
-    """Wrap a markdown table in the README weather sentinel comments.
+def render_readme_card(data: WeatherData) -> str:
+    """Render a compact HTML summary card for README.
 
     Args:
-        table: Markdown table string.
+        data: Weather data to render.
+
+    Returns:
+        HTML snippet as a string.
+    """
+
+    emoji = weathercode_to_emoji(data.weathercode)
+    return (
+        "<div align=\"center\">\n"
+        "  <div style=\"display:inline-block;padding:14px 18px;border-radius:16px;"
+        "border:1px solid #2df2ff;background:#0f1118;color:#f7f4ff;font-family:Arial,sans-serif;\">\n"
+        "    <div style=\"font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#9c98ad;\">"
+        "Pavia Weather</div>\n"
+        f"    <div style=\"font-size:28px;font-weight:700;margin:6px 0;\">{emoji} "
+        f"{data.temperature_c:.1f}&deg;C</div>\n"
+        f"    <div style=\"font-size:12px;color:#9c98ad;\">Updated {data.time}</div>\n"
+        "    <div style=\"margin-top:8px;font-size:12px;color:#d6d0ff;\">"
+        f"Humidity {data.humidity_percent:.0f}% · Wind {data.wind_speed_kmh:.1f} km/h</div>\n"
+        "  </div>\n"
+        "</div>"
+    )
+
+
+def build_weather_block(content: str) -> str:
+    """Wrap weather content in the README sentinel comments.
+
+    Args:
+        content: Weather content string.
 
     Returns:
         Weather block string.
     """
 
-    return f"{WEATHER_START}\n{table}\n{WEATHER_END}"
+    return f"{WEATHER_START}\n{content}\n{WEATHER_END}"
 
 
 def replace_weather_block(content: str, block: str) -> str:
@@ -288,8 +315,9 @@ def run() -> int:
 
     try:
         data = asyncio.run(fetch_current_weather())
+        summary = render_readme_card(data)
         table = render_markdown_table(data)
-        block = build_weather_block(table)
+        block = build_weather_block(f"{summary}\n\n{table}")
         if args.dry_run:
             print(block)
             return 0

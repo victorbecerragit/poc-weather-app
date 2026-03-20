@@ -43,8 +43,26 @@ python -m pytest tests/
 ## Current Weather
 
 <!-- WEATHER:START -->
+<div align="center">
+  <div style="display:inline-block;padding:14px 18px;border-radius:16px;border:1px solid #2df2ff;background:#0f1118;color:#f7f4ff;font-family:Arial,sans-serif;">
+    <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#9c98ad;">Pavia Weather</div>
+    <div style="font-size:28px;font-weight:700;margin:6px 0;">☀️ 10.5&deg;C</div>
+    <div style="font-size:12px;color:#9c98ad;">Updated 2026-03-20T10:30</div>
+    <div style="margin-top:8px;font-size:12px;color:#d6d0ff;">Humidity 60% · Wind 3.4 km/h</div>
+  </div>
+</div>
+
 | Time (Europe/Rome) | Temp (°C) | Humidity (%) | Wind (km/h) | Wind Dir (°) | Precip (mm) | Code |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2026-03-20T10:00 | 9.5 | 63 | 4.1 | 195 | 0.0 | 0 ☀️ |
+| 2026-03-20T10:30 | 10.5 | 60 | 3.4 | 212 | 0.0 | 0 ☀️ |
 <!-- WEATHER:END -->
 
+## Astro UI
+
+Live UI: http://poc-weather-app.io
+
+```bash
+cd src
+npm install
+npm run dev
+```
