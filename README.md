@@ -59,7 +59,7 @@ python -m pytest tests/
 
 ## Astro UI
 
-Live UI: http://poc-weather-app.io
+Live UI: <http://poc-weather-app.io> http://victorbecerragit.github.io/poc-weather-app/
 
 ```bash
 cd src
