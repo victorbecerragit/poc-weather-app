@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #f2efe9;
+  --ink: #1f1b16;
+  --muted: #6f675c;
+  --accent: #f04b1d;
+  --accent-soft: rgba(240, 75, 29, 0.18);
+  --card: #fbfaf7;
+  --shadow: rgba(15, 12, 9, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at top left, #fff6ea, var(--bg));
+  color: var(--ink);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 6rem clamp(1.5rem, 4vw, 4rem) 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: 380px;
+  height: 380px;
+  background: conic-gradient(from 200deg, #f04b1d, #ffd5c8, #f04b1d);
+  opacity: 0.2;
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 0;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'><circle cx='1' cy='1' r='1' fill='%23bdaea0' fill-opacity='0.18'/></svg>");
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  background: #fff8f2;
+}
+
+.hero__status {
+  background: var(--accent);
+  color: white;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+h1 {
+  font-family: "Fraunces", "Times New Roman", serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin: 1.5rem 0 1rem;
+  line-height: 1.05;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px var(--shadow);
+  border: 1px solid rgba(31, 27, 22, 0.08);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.card--primary {
+  background: linear-gradient(145deg, #fff, #ffece2);
+  border: 1px solid var(--accent-soft);
+}
+
+.card__title {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.card__value {
+  font-size: 2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card__meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+.footer strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding-top: 4rem;
+  }
+
+  .card__value {
+    font-size: 1.6rem;
+  }
+}
