@@ -45,7 +45,7 @@ python -m pytest tests/
 <!-- WEATHER:START -->
 | Time (Europe/Rome) | Temp (°C) | Humidity (%) | Wind (km/h) | Wind Dir (°) | Precip (mm) | Code |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2026-03-20T09:45 | 9.2 | 64 | 4.1 | 195 | 0.0 | 1 🌤️ |
+| 2026-03-20T10:00 | 9.5 | 63 | 4.1 | 195 | 0.0 | 0 ☀️ |
 <!-- WEATHER:END -->
 
 ## Astro UI
