@@ -48,10 +48,3 @@ python -m pytest tests/
 | 2026-03-20T10:00 | 9.5 | 63 | 4.1 | 195 | 0.0 | 0 ☀️ |
 <!-- WEATHER:END -->
 
-## Astro UI
-
-```bash
-cd src
-npm install
-npm run dev
-```
