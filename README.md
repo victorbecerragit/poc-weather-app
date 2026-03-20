@@ -50,6 +50,8 @@ python -m pytest tests/
 
 ## Astro UI
 
+Live UI: http://poc-weather-app.io
+
 ```bash
 cd src
 npm install
