@@ -315,8 +315,8 @@ def run() -> int:
         table = render_markdown_table(data)
         block = build_weather_block(f"{summary}\n\n{table}")
 
-        # Always write weather data to src/data/weather.json
-        weather_json_path = Path("src/data/weather.json")
+        # Always write weather data to src/public/weather.json
+        weather_json_path = Path("src/public/weather.json")
         weather_json_path.parent.mkdir(parents=True, exist_ok=True)
         import json
         weather_json_path.write_text(json.dumps({
