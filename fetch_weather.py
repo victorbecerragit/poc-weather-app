@@ -309,26 +309,43 @@ def run() -> int:
     args = parse_args()
     readme_path = Path(args.readme)
 
-    if not readme_path.exists():
-        print(f"README not found at {readme_path}", file=sys.stderr)
-        return 1
-
     try:
         data = asyncio.run(fetch_current_weather())
         summary = render_readme_card(data)
         table = render_markdown_table(data)
         block = build_weather_block(f"{summary}\n\n{table}")
+
+        # Always write weather data to src/data/weather.json
+        weather_json_path = Path("src/data/weather.json")
+        weather_json_path.parent.mkdir(parents=True, exist_ok=True)
+        import json
+        weather_json_path.write_text(json.dumps({
+            "time": data.time,
+            "temperature_2m": data.temperature_c,
+            "relative_humidity_2m": data.humidity_percent,
+            "wind_speed_10m": data.wind_speed_kmh,
+            "wind_direction_10m": data.wind_direction_deg,
+            "precipitation": data.precipitation_mm,
+            "weathercode": data.weathercode
+        }, indent=2), encoding="utf-8")
+
         if args.dry_run:
             print(block)
+            print("\n---\nWeather JSON written to src/public/weather.json (dry run mode)")
             return 0
+
+        if not readme_path.exists():
+            print(f"README not found at {readme_path}", file=sys.stderr)
+            return 1
 
         changed = update_readme(readme_path, block)
         if changed:
             print("README.md updated.")
         else:
-            print("README.md already up to date.")
+            print("No changes to README.md.")
+        print("Weather JSON written to src/public/weather.json.")
         return 0
-    except (httpx.HTTPError, ValueError) as exc:
+    except Exception as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return 1
 
