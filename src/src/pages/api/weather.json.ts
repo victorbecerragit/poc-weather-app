@@ -8,12 +8,18 @@ export const GET: APIRoute = async () => {
     const json = fs.readFileSync(filePath, "utf-8");
     return new Response(json, {
       status: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store"
+      },
     });
   } catch (e) {
     return new Response(JSON.stringify({ error: "No weather data" }), {
       status: 404,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store"
+      },
     });
   }
 };
