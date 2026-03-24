@@ -4,7 +4,8 @@ import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
   try {
-    const filePath = path.resolve(import.meta.env.SRC_DIR || "src", "../public/weather.json");
+    // Use absolute path from project root
+    const filePath = path.resolve(process.cwd(), 'src/public/weather.json');
     const json = fs.readFileSync(filePath, "utf-8");
     return new Response(json, {
       status: 200,
