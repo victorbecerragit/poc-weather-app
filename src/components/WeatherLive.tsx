@@ -55,9 +55,12 @@ export default function WeatherLive() {
   const [status, setStatus] = useState('Loading...');
 
   useEffect(() => {
+    // Fetch weather.json with a cache-busting query param to force the browser to bypass cache.
+    // This ensures the frontend always gets the latest data, even if the browser would normally cache the static file.
     async function fetchWeather() {
       try {
-        const res = await fetch('/api/weather.json');
+        // Fetch from the Astro API route, not the static file
+        const res = await fetch(`/api/weather.json?t=${Date.now()}`);
         if (!res.ok) throw new Error('No weather data');
         const data = await res.json();
         setWeather(data);
@@ -67,11 +70,25 @@ export default function WeatherLive() {
       }
     }
     fetchWeather();
-    const interval = setInterval(fetchWeather, 30000);
+    // Refresh every 1 minute (60000 ms) for local testing
+    const interval = setInterval(fetchWeather, 60000);
     return () => clearInterval(interval);
   }, []);
 
+
+  // Map weather codes to dynamic titles
+  function getDynamicTitle(code: number): string {
+    if ([0, 1].includes(code)) return "Sunny Skies over Pavia";
+    if ([2, 3].includes(code)) return "Cloudy Skies over Pavia";
+    if ([45, 48].includes(code)) return "Foggy Morning in Pavia";
+    if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return "Rainy Day in Pavia";
+    if ([71, 73, 75, 85, 86].includes(code)) return "Snowy Day in Pavia";
+    if ([95, 96, 99].includes(code)) return "Stormy Weather in Pavia";
+    return "Skies over Pavia";
+  }
+
   const emoji = getEmoji(weather.weathercode);
+  const dynamicTitle = getDynamicTitle(weather.weathercode);
 
   return (
     <div>
@@ -79,7 +96,7 @@ export default function WeatherLive() {
         <span>Weather Pavia Live</span>
         <span className="hero__status">{status}</span>
       </div>
-      <h1>Concrete Skies over Pavia</h1>
+      <h1>{dynamicTitle}</h1>
       <div className="hero__summary">
         <div className="temp">
           <div className="temp__emoji">{emoji}</div>
