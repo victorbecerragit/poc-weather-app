@@ -315,8 +315,8 @@ def run() -> int:
         table = render_markdown_table(data)
         block = build_weather_block(f"{summary}\n\n{table}")
 
-        # Always write weather data to src/public/weather.json
-        weather_json_path = Path("src/public/weather.json")
+        # Always write weather data to public/weather.json
+        weather_json_path = Path("public/weather.json")
         weather_json_path.parent.mkdir(parents=True, exist_ok=True)
         import json
         weather_json_path.write_text(json.dumps({
@@ -331,7 +331,7 @@ def run() -> int:
 
         if args.dry_run:
             print(block)
-            print("\n---\nWeather JSON written to src/public/weather.json (dry run mode)")
+            print("\n---\nWeather JSON written to public/weather.json (dry run mode)")
             return 0
 
         if not readme_path.exists():
@@ -343,7 +343,7 @@ def run() -> int:
             print("README.md updated.")
         else:
             print("No changes to README.md.")
-        print("Weather JSON written to src/public/weather.json.")
+        print("Weather JSON written to public/weather.json.")
         return 0
     except Exception as exc:
         print(f"Error: {exc}", file=sys.stderr)
