@@ -34,15 +34,16 @@ jobs:
       - name: Build
         run: npm run build || (cat dist/ || true; exit 1)  # ← dump output on fail
 
-      - name: Verify dist artifact  # ← NEW: debug
+      - name: Verify dist artifact  # ← NEW: check contents
         run: |
+          pwd
           ls -la dist/
           du -sh dist/*
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5  # ← v5 for latest fixes
+        uses: actions/upload-pages-artifact@v3  # ← confirmed latest stable
         with:
-          path: ./dist  # ← explicit path
+          path: ./dist  # ← explicit with dot for reliability
 
   deploy:
     needs: build
