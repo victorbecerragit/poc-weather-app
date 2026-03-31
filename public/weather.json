@@ -1,9 +1,9 @@
 {
-  "time": "2026-03-31T06:00",
-  "temperature_2m": 7.9,
+  "time": "2026-03-31T07:45",
+  "temperature_2m": 8.2,
   "relative_humidity_2m": 37.0,
-  "wind_speed_10m": 13.4,
-  "wind_direction_10m": 346.0,
+  "wind_speed_10m": 16.7,
+  "wind_direction_10m": 353.0,
   "precipitation": 0.0,
   "weathercode": 0
 }
