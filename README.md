@@ -47,15 +47,15 @@ python -m pytest tests/
 <div align="center">
   <div style="display:inline-block;padding:14px 18px;border-radius:16px;border:1px solid #2df2ff;background:#0f1118;color:#f7f4ff;font-family:Arial,sans-serif;">
     <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#9c98ad;">Pavia Weather</div>
-    <div style="font-size:28px;font-weight:700;margin:6px 0;">🌧️ 16.2&deg;C</div>
-    <div style="font-size:12px;color:#9c98ad;">Updated 2026-03-31T15:15</div>
-    <div style="margin-top:8px;font-size:12px;color:#d6d0ff;">Humidity 15% · Wind 23.5 km/h</div>
+    <div style="font-size:28px;font-weight:700;margin:6px 0;">⛅ 16.0&deg;C</div>
+    <div style="font-size:12px;color:#9c98ad;">Updated 2026-03-31T16:45</div>
+    <div style="margin-top:8px;font-size:12px;color:#d6d0ff;">Humidity 13% · Wind 17.4 km/h</div>
   </div>
 </div>
 
 | Time (Europe/Rome) | Temp (°C) | Humidity (%) | Wind (km/h) | Wind Dir (°) | Precip (mm) | Code |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2026-03-31T15:15 | 16.2 | 15 | 23.5 | 6 | 0.0 | 80 🌧️ |
+| 2026-03-31T16:45 | 16.0 | 13 | 17.4 | 34 | 0.0 | 2 ⛅ |
 <!-- WEATHER:END -->
 
 ## Astro UI
