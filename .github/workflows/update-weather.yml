@@ -3,7 +3,7 @@ name: Update Weather
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *" 
+    - cron: "1 07 * * *" 
 
 permissions:
   contents: write
