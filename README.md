@@ -8,7 +8,7 @@ Real-time weather for Pavia, Italy, updated automatically with Open-Meteo.
 ## Key Features
 
 - Fetches current weather (no API key required).
-- Updates the README every 15 minutes via GitHub Actions.
+- Updates the README daily at 07:01 via GitHub Actions.
 - Optional Astro UI for a visual snapshot.
 
 ## Local Development
