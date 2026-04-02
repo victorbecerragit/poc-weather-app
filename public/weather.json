@@ -1,9 +1,9 @@
 {
-  "time": "2026-04-02T06:45",
-  "temperature_2m": 4.4,
-  "relative_humidity_2m": 75.0,
-  "wind_speed_10m": 3.6,
-  "wind_direction_10m": 264.0,
+  "time": "2026-04-02T08:00",
+  "temperature_2m": 4.6,
+  "relative_humidity_2m": 77.0,
+  "wind_speed_10m": 1.8,
+  "wind_direction_10m": 143.0,
   "precipitation": 0.0,
-  "weathercode": 0
+  "weathercode": 2
 }
