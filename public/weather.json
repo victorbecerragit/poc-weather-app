@@ -1,9 +1,9 @@
 {
-  "time": "2026-05-27T10:15",
-  "temperature_2m": 26.5,
-  "relative_humidity_2m": 43.0,
-  "wind_speed_10m": 6.3,
-  "wind_direction_10m": 246.0,
+  "time": "2026-05-28T10:15",
+  "temperature_2m": 26.3,
+  "relative_humidity_2m": 65.0,
+  "wind_speed_10m": 6.4,
+  "wind_direction_10m": 133.0,
   "precipitation": 0.0,
-  "weathercode": 0
+  "weathercode": 1
 }
