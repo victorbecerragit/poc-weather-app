@@ -1,9 +1,9 @@
 {
-  "time": "2026-09-25T09:00",
-  "temperature_2m": 17.0,
-  "relative_humidity_2m": 78.0,
-  "wind_speed_10m": 11.9,
-  "wind_direction_10m": 65.0,
+  "time": "2026-09-26T09:00",
+  "temperature_2m": 15.2,
+  "relative_humidity_2m": 68.0,
+  "wind_speed_10m": 6.8,
+  "wind_direction_10m": 87.0,
   "precipitation": 0.0,
   "weathercode": 2
 }
