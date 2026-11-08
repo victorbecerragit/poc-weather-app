@@ -1,9 +1,9 @@
 {
-  "time": "2026-11-07T08:00",
-  "temperature_2m": 9.0,
-  "relative_humidity_2m": 94.0,
-  "wind_speed_10m": 5.8,
-  "wind_direction_10m": 60.0,
+  "time": "2026-11-08T08:00",
+  "temperature_2m": 9.4,
+  "relative_humidity_2m": 95.0,
+  "wind_speed_10m": 2.9,
+  "wind_direction_10m": 300.0,
   "precipitation": 0.0,
-  "weathercode": 61
+  "weathercode": 45
 }
